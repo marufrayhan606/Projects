@@ -1,24 +1,25 @@
 #include <iostream>
 #include "crops.h"
 #include "livestock.h"
+#include "menu.h"
 using namespace std;
 
 void guest()
 {
     system("cls");
     cout << "Welcome !!" << endl;
-    cout << "--------------------------------" << endl; 
+    cout << "--------------------------------" << endl;
     cout << "You are now browsing as a guest" << endl;
     cout << "Please select an option" << endl;
     cout << "1. Crops" << endl;
     cout << "2. Livestock" << endl;
-    cout << "3. Exit" << endl;
+    cout << "3. Go Home" << endl;
+    cout << "4. Exit" << endl;
 
     int choice;
 
     do
     {
-        
         cout << "Enter your choice: ";
         cin >> choice;
 
@@ -31,6 +32,9 @@ void guest()
             livestock();
             break;
         case 3:
+            homeLayout();
+            break;
+        case 4:
             return;
             break;
         default:
@@ -38,5 +42,5 @@ void guest()
             break;
         }
 
-    } while (!(choice >= 1 && choice <= 3));
+    } while (choice != 4);
 }

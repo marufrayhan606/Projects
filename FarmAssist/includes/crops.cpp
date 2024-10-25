@@ -1,5 +1,6 @@
 #include <iostream>
 #include "crops.h"
+#include "menu.h"
 using namespace std;
 
 enum Location
@@ -623,8 +624,8 @@ void suggestCrop()
     }
 
     cout << "Approximate Seed Amount: " << seedAmount << " kg\n";
-    cout << "Approximate Seed Cost: " << seedCost << " units\n";
-    cout << "Recommended Fertilizer Cost: " << fertilizerCost << " units\n";
+    cout << "Approximate Seed Cost: " << seedCost << " tk\n";
+    cout << "Recommended Fertilizer Cost: " << fertilizerCost << " tk\n";
 
     if (phLevel < 5.5)
     {
@@ -634,13 +635,27 @@ void suggestCrop()
     {
         cout << "\nNote: Soil is alkaline. Consider adding sulfur.\n";
     }
+
+    cout << "\n\nPress any key to return to Home Screen";
+    cin.ignore();
+    cin.get();
+    
+    if (loginUser())
+    {
+        loggedInLayout();
+    }
+    else
+    {
+        homeLayout();
+    }
+    
 }
 
 
 void crops()
 {
     system("cls");
-    dataForCrops(); // Collect input data (land area, location, pH, soil, and season)
+    dataForCrops();
     system("cls");
-    suggestCrop();  // Provide crop suggestions along with seed amount, costs, and fertilizers
+    suggestCrop();
 }
