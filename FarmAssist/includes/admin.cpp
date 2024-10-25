@@ -4,6 +4,7 @@
 #include <string>
 #include <vector>
 #include "admin.h"
+#include "menu.h"
 
 using namespace std;
 
@@ -49,12 +50,17 @@ void manageStock() {
 }
 
 void adminPanel() {
+
+    system("cls");
+
     int choice;
     do {
-        cout << "Admin Panel\n";
-        cout << "1. View Stock\n";
-        cout << "2. Manage Stock\n";
-        cout << "3. Exit\n";
+        cout << "***********" << endl;
+        cout << "Admin Panel" << endl;
+        cout << "1. View Stock" << endl;
+        cout << "2. Manage Stock" << endl;
+        cout << "3. Logout" << endl;
+        cout << "4. Exit" << endl;
         cout << "Enter your choice: ";
         cin >> choice;
 
@@ -67,11 +73,12 @@ void adminPanel() {
             manageStock();
             break;
         case 3:
-            return;
+            homeLayout();
+            break;
         default:
             cout << "Invalid choice. Please try again." << endl;
             break;
         }
-    } while (choice != 3);
+    } while (choice != 4);
 }
 
